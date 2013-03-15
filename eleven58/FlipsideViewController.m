@@ -20,6 +20,7 @@
 @synthesize pass;
 @synthesize path;
 @synthesize test;
+@synthesize file;
 
 
 - (void)viewDidLoad
@@ -29,6 +30,7 @@
     user.text = [Utils getUsername];
     pass.text = [Utils getPassword];
     path.text = [Utils getPath];
+    file.text = [Utils getFilename];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -67,7 +69,7 @@
     }
     if (sender == pass)
     {
-        NSLog(@"New pass:%@", ((UITextField*)sender).text);
+        NSLog(@"New password");
         [Utils setPassword:((UITextField*)sender).text];
     }
     if (sender == path )
@@ -75,10 +77,20 @@
         NSLog(@"New path:%@", ((UITextField*)sender).text);
         [Utils setPath:((UITextField*)sender).text];
     }
+    if (sender == file)
+    {
+        NSLog(@"New file:%@", ((UITextField*)sender).text);
+        [Utils setFilename:((UITextField *)sender).text];
+    }
 }
 
 - (IBAction) testConnection:(id)sender{
-    [Utils testServerConnection];
+    
+    NSString * msg = [Utils testServerConnection] ? @"Passed!" :  @"Failed!";
+    
+   [[[UIAlertView alloc] initWithTitle:msg message:[@"Connection Test " stringByAppendingString:msg] delegate:nil
+                     cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

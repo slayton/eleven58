@@ -19,6 +19,7 @@
     UITextField * user;
     UITextField * pass;
     UITextField * path;
+    UITextField * file;
     UIButton * test;
 }
 
@@ -26,6 +27,7 @@
 @property (nonatomic, retain) IBOutlet  UITextField * user;
 @property (nonatomic, retain) IBOutlet  UITextField * pass;
 @property (nonatomic, retain) IBOutlet  UITextField * path;
+@property (nonatomic, retain) IBOutlet  UITextField * file;
 @property (nonatomic, retain) IBOutlet  UIButton * test;
 
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;

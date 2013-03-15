@@ -63,7 +63,14 @@
     NSLog(@"UploadButtonPressed");
     NSLog(@"Uploading image with size:%f x %f",
           [imageView.image size].width, [imageView.image size].height);
-    [Utils uploadUIImageToServer:imageView.image];
+    BOOL b = [Utils uploadUIImageToServer:imageView.image];
+    
+    
+    NSString *title = b ? @"Sucess!" : @"Failed!";
+    NSString *msg   = b ? @"Atta boy!" : @"Damn, check the settings and try again.";
+    [[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil
+                     cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+
 }
 
 

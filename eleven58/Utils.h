@@ -19,11 +19,13 @@
 +(NSString *) getHostname;
 +(NSString *) getPath;
 +(NSString *) getPassword;
-+(BOOL) getSaveFlag;;
++(NSString *) getFilename;
++(BOOL) getSaveFlag;
 
 +(void) setUsername:(NSString*)s;
 +(void) setHostname:(NSString*)s;
 +(void) setPath:(NSString*)s;
++(void) setFilename:(NSString *)s;
 +(void) setPassword:(NSString*)s;
 +(void) setSaveFlag:(BOOL)b;
 
