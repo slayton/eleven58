@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1138387516F6A512008FF7CE /* Texture1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1138387416F6A512008FF7CE /* Texture1.jpg */; };
 		11A9CB0516F3797400B8E3B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A9CB0416F3797400B8E3B5 /* UIKit.framework */; };
 		11A9CB0716F3797400B8E3B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A9CB0616F3797400B8E3B5 /* Foundation.framework */; };
 		11A9CB0916F3797400B8E3B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A9CB0816F3797400B8E3B5 /* CoreGraphics.framework */; };
@@ -37,8 +38,6 @@
 		11E88CB416F3AB11000EA530 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E88CB116F3A5B5000EA530 /* icon@2x.png */; };
 		11E88CB516F3ABBB000EA530 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 11E88CAF16F3A5A7000EA530 /* icon.png */; };
 		11E88D1F16F3B68A000EA530 /* NMSSH.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E88D1E16F3B65D000EA530 /* NMSSH.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		11E88D2316F3C47C000EA530 /* Texture1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11E88D2116F3C47C000EA530 /* Texture1.jpg */; };
-		11E88D2416F3C47C000EA530 /* Texture2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 11E88D2216F3C47C000EA530 /* Texture2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1138387416F6A512008FF7CE /* Texture1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Texture1.jpg; sourceTree = "<group>"; };
 		11A9CB0116F3797400B8E3B5 /* eleven58.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eleven58.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A9CB0416F3797400B8E3B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		11A9CB0616F3797400B8E3B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,8 +99,6 @@
 		11E88CE716F3B152000EA530 /* NMSSH.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMSSH.framework; path = frameworks/OSX/NMSSH.framework; sourceTree = "<group>"; };
 		11E88D0F16F3B567000EA530 /* eleven58 copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "eleven58 copy-Info.plist"; path = "/Users/stuartlayton/src/eleven58/eleven58 copy-Info.plist"; sourceTree = "<absolute>"; };
 		11E88D1916F3B65C000EA530 /* NMSSH-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "NMSSH-iOS.xcodeproj"; path = "../NMSSH/NMSSH-iOS.xcodeproj"; sourceTree = "<group>"; };
-		11E88D2116F3C47C000EA530 /* Texture1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Texture1.jpg; path = ../../../Desktop/Texture1.jpg; sourceTree = "<group>"; };
-		11E88D2216F3C47C000EA530 /* Texture2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Texture2.jpg; path = ../../../Desktop/Texture2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +159,8 @@
 		11A9CB0A16F3797400B8E3B5 /* eleven58 */ = {
 			isa = PBXGroup;
 			children = (
-				11A9CB3516F379AD00B8E3B5 /* Utils.h */,
 				11A9CB3616F379AD00B8E3B5 /* Utils.m */,
+				11A9CB3516F379AD00B8E3B5 /* Utils.h */,
 				11A9CB1316F3797400B8E3B5 /* AppDelegate.h */,
 				11A9CB1416F3797400B8E3B5 /* AppDelegate.m */,
 				11A9CB1C16F3797400B8E3B5 /* MainViewController.h */,
@@ -211,8 +209,7 @@
 		11A9CB4F16F37A7900B8E3B5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				11E88D2116F3C47C000EA530 /* Texture1.jpg */,
-				11E88D2216F3C47C000EA530 /* Texture2.jpg */,
+				1138387416F6A512008FF7CE /* Texture1.jpg */,
 				11E88CB116F3A5B5000EA530 /* icon@2x.png */,
 				11E88CAF16F3A5A7000EA530 /* icon.png */,
 				11A9CB4516F37A7400B8E3B5 /* button_bar.png */,
@@ -322,8 +319,7 @@
 				11A9CB4E16F37A7400B8E3B5 /* button_upload.png in Resources */,
 				11E88CB416F3AB11000EA530 /* icon@2x.png in Resources */,
 				11E88CB516F3ABBB000EA530 /* icon.png in Resources */,
-				11E88D2316F3C47C000EA530 /* Texture1.jpg in Resources */,
-				11E88D2416F3C47C000EA530 /* Texture2.jpg in Resources */,
+				1138387516F6A512008FF7CE /* Texture1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +431,7 @@
 		11A9CB2B16F3797400B8E3B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/frameworks/iOS\"",
@@ -443,6 +440,7 @@
 				GCC_PREFIX_HEADER = "eleven58/eleven58-Prefix.pch";
 				INFOPLIST_FILE = "eleven58/eleven58-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -450,6 +448,7 @@
 		11A9CB2C16F3797400B8E3B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/frameworks/iOS\"",
@@ -458,6 +457,7 @@
 				GCC_PREFIX_HEADER = "eleven58/eleven58-Prefix.pch";
 				INFOPLIST_FILE = "eleven58/eleven58-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

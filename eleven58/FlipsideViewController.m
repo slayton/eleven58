@@ -16,12 +16,13 @@
 @implementation FlipsideViewController
 
 @synthesize host;
+@synthesize port;
 @synthesize user;
 @synthesize pass;
 @synthesize path;
 @synthesize test;
 @synthesize file;
-
+@synthesize getFolder;
 
 - (void)viewDidLoad
 {
@@ -31,6 +32,7 @@
     pass.text = [Utils getPassword];
     path.text = [Utils getPath];
     file.text = [Utils getFilename];
+    port.text = [Utils getPort];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -82,15 +84,33 @@
         NSLog(@"New file:%@", ((UITextField*)sender).text);
         [Utils setFilename:((UITextField *)sender).text];
     }
+    if (sender == port)
+    {
+        NSLog(@"New port:%@", ((UITextField *) sender).text);
+        [Utils setPort:((UITextField *) sender).text];
+    }
 }
 
 - (IBAction) testConnection:(id)sender{
     
-    NSString * msg = [Utils testServerConnection] ? @"Passed!" :  @"Failed!";
     
-   [[[UIAlertView alloc] initWithTitle:msg message:[@"Connection Test " stringByAppendingString:msg] delegate:nil
+    if (![Utils testServerConnection])
+        [[[UIAlertView alloc] initWithTitle:@"Connection Test" message:@"Unable to connect to server"
+                              delegate:nil
                      cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     
+    else if (![Utils testIfFolderExists])
+        [[[UIAlertView alloc] initWithTitle:@"Connection Test" message:@"Destination folder does not exist"             delegate:nil
+                          cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    else
+        [[[UIAlertView alloc] initWithTitle:@"Connection Test" message:@"Passed all tests!"             delegate:nil
+                          cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    
+}
+- (IBAction) getBaseFolder:(id)sender{
+    NSString *dir = [Utils getBaseDirectory];
+    path.text = dir;
+    [self doneEnteringText:path];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

@@ -16,6 +16,20 @@
 
 @implementation Utils
 
++(NSString*)getBaseDirectory{
+    
+    NMSSHSession * session = [Utils openConnection];
+
+    NSError *error = nil;
+    NSString *response = [[session channel] execute:@"pwd" error:&error];
+    response = [response substringWithRange: NSMakeRange(0, [response rangeOfString: @"\n"].location)];
+    NSLog(@"Response: %@", response);
+    NSLog(@"Done!");
+    [session disconnect];
+    session = nil;
+    
+    return response;
+}
 +(BOOL) testServerConnection{
     NSLog(@"Testing server connection...");
     
@@ -32,16 +46,40 @@
     NSLog(@"Failed!");
     return NO;    
 }
++(BOOL) testIfFolderExists{
+    
+
+    NSLog(@"Testing for folder ...");
+    
+    NMSSHSession * session = [Utils openConnection];
+    if ( session != nil ){
+        NMSFTP *sftp = [NMSFTP connectWithSession:session];
+        
+       if ( [sftp directoryExistsAtPath:[Utils getPath]] )
+       {
+           [session disconnect];
+            session = nil;
+            NSLog(@"Disconnected");
+            return YES;
+       }
+    }
+    
+    NSLog(@"Failed!");
+    return NO;
+}
+
 +(NMSSHSession *) openConnection{
-    NMSSHSession *session = [NMSSHSession connectToHost:[Utils getHostname]
+    NSString *host = [[Utils getHostname] stringByAppendingFormat:@":%@", [Utils getPort]];
+    NMSSHSession *session = [NMSSHSession connectToHost:host
                                            withUsername:[Utils getUsername]];
     if (![session isConnected])
     {
-        NSLog(@"Failed to connect!");
+        NSLog(@"Failed to connect to:%@!", host);
         session = nil;
         return session;
-    }    
-    NSLog(@"\tConnected!");
+    }
+    
+    NSLog(@"\tConnected to:%@!", host);
     
     [session authenticateByPassword:[Utils getPassword]];
     
@@ -137,6 +175,14 @@
         return @"host.example.com";
 }
 
++(NSString *) getPort{
+    NSString *h = [[Utils getPrefernces] stringForKey:@"port"];
+    if (h != nil)
+        return h;
+    else
+        return @"22";
+}
+
 +(NSString *) getPath{
     NSString *p = [[Utils getPrefernces] stringForKey:@"path"];
     if (p != nil)
@@ -166,6 +212,11 @@
 +(void) setHostname:(NSString *) s{
     NSUserDefaults *d = [Utils getPrefernces];
     [d setObject:s forKey:@"hostname"];
+    [d synchronize];
+}
++(void) setPort:(NSString *) s{
+    NSUserDefaults *d = [Utils getPrefernces];
+    [d setObject:s forKey:@"port"];
     [d synchronize];
 }
 +(void) setPath:(NSString *) s{

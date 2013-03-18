@@ -13,17 +13,21 @@
 +(BOOL) uploadUIImageToServer:(UIImage *) img;
 +(UIImage *) downsizeImage:(UIImage *) img;
 
++(NSString *) getBaseDirectory;
 +(BOOL) testServerConnection;
++(BOOL) testIfFolderExists;
 
 +(NSString *) getUsername;
 +(NSString *) getHostname;
 +(NSString *) getPath;
 +(NSString *) getPassword;
 +(NSString *) getFilename;
++(NSString *) getPort;
 +(BOOL) getSaveFlag;
 
 +(void) setUsername:(NSString*)s;
 +(void) setHostname:(NSString*)s;
++(void) setPort:(NSString*)s;
 +(void) setPath:(NSString*)s;
 +(void) setFilename:(NSString *)s;
 +(void) setPassword:(NSString*)s;

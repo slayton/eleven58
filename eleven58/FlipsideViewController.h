@@ -16,19 +16,23 @@
 
 @interface FlipsideViewController : UIViewController <FlipsideViewControllerDelegate, UITextFieldDelegate>{
     UITextField * host;
+    UITextField * port;
     UITextField * user;
     UITextField * pass;
     UITextField * path;
     UITextField * file;
     UIButton * test;
+    UIButton * getFolder;
 }
 
-@property (nonatomic, retain) IBOutlet  UITextField * host;
-@property (nonatomic, retain) IBOutlet  UITextField * user;
-@property (nonatomic, retain) IBOutlet  UITextField * pass;
-@property (nonatomic, retain) IBOutlet  UITextField * path;
-@property (nonatomic, retain) IBOutlet  UITextField * file;
-@property (nonatomic, retain) IBOutlet  UIButton * test;
+@property (nonatomic, retain) IBOutlet UITextField * host;
+@property (nonatomic, retain) IBOutlet UITextField * port;
+@property (nonatomic, retain) IBOutlet UITextField * user;
+@property (nonatomic, retain) IBOutlet UITextField * pass;
+@property (nonatomic, retain) IBOutlet UITextField * path;
+@property (nonatomic, retain) IBOutlet UITextField * file;
+@property (nonatomic, retain) IBOutlet UIButton * test;
+@property (nonatomic, retain) IBOutlet UIButton * getFolder;
 
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
 
